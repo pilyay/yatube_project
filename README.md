@@ -1,2 +1,1 @@
-# yatube_project
-Социальная сеть блогеров
+# Проект Сообщества [:top:](https://github.com/pilyay?tab=repositories)
