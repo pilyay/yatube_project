@@ -1,4 +1,4 @@
-# Сообщества [:top:](https://github.com/pilyay?tab=repositories)
+# Проект Сообщества [:top:](https://github.com/pilyay?tab=repositories)
 
 ### :memo: Описание 
 * Курс: Python-разработчик плюс от Яндес.Практикума.  
