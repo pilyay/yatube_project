@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django import views
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+# from . import views
 
-urlpatterns = [path('admin/', admin.site.urls),
-               path('', include('post.urls')),
+urlpatterns = [path('', views.index),
+               path('groups/<slug:slug>/', views.group_posts),
                ]
+
