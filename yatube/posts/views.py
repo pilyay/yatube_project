@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+# from django.template import loader
 
 def index(request):
     '''Main page.'''
@@ -28,3 +29,15 @@ def group_posts(request, slug):
         'nline&hash=&limit=0&content_type=image%2Fpng&owner_uid'
         '=205113803&tknv=v2&size=1920x1096">'
         )
+        # def index(request):
+        #   Загружаем шаблон;
+        #   шаблоны обычно хранят в отдельной директории.
+        #   template = loader.get_template('ice_cream/index.html')
+        #   Формируем шаблон
+        #   return HttpResponse(template.render({}, request)) 
+
+        # Или
+
+        # def index(request):
+        #   template = 'ice_cream/index.html'
+        #   return render(request, template) 
