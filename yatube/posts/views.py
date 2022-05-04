@@ -1,10 +1,22 @@
+'''yatube/posts/views.py'''
+
 from django.shortcuts import render
 from django.http import HttpResponse
 # from django.template import loader
 
+
 def index(request):
     '''Main page.'''
-    return HttpResponse('Главная страница. 👋')
+    # return HttpResponse('Главная страница. 👋')
+    template = 'posts/index.html'
+    return render(request, template)
+
+def group_list(request):
+    '''Last post page.'''
+    # return HttpResponse('Главная страница. 👋')
+    template = 'posts/group_list.html'
+    return render(request, template)
+
 
 def group_posts(request, slug):
     '''Posts page.'''
@@ -34,10 +46,10 @@ def group_posts(request, slug):
         #   шаблоны обычно хранят в отдельной директории.
         #   template = loader.get_template('ice_cream/index.html')
         #   Формируем шаблон
-        #   return HttpResponse(template.render({}, request)) 
+        #   return HttpResponse(template.render({}, request))
 
         # Или
 
         # def index(request):
         #   template = 'ice_cream/index.html'
-        #   return render(request, template) 
+        #   return render(request, template)
