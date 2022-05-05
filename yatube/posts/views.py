@@ -9,13 +9,18 @@ def index(request):
     '''Main page.'''
     # return HttpResponse('Главная страница. 👋')
     template = 'posts/index.html'
-    return render(request, template)
+    title = 'Это главная страница проекта Yatube'
+    # Словарь с данными принято называть context
+    context = {'title': title}
+    return render(request, template, context)
+
 
 def group_list(request):
     '''Last post page.'''
-    # return HttpResponse('Главная страница. 👋')
     template = 'posts/group_list.html'
-    return render(request, template)
+    title = 'Здесь будет информация о группах проекта Yatube'
+    context = {'title': title}
+    return render(request, template, context)
 
 
 def group_posts(request, slug):
@@ -47,9 +52,3 @@ def group_posts(request, slug):
         #   template = loader.get_template('ice_cream/index.html')
         #   Формируем шаблон
         #   return HttpResponse(template.render({}, request))
-
-        # Или
-
-        # def index(request):
-        #   template = 'ice_cream/index.html'
-        #   return render(request, template)
