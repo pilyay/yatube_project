@@ -2,16 +2,22 @@
 
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Post
 # from django.template import loader
 
 
 def index(request):
     '''Main page.'''
-    # return HttpResponse('Главная страница. 👋')
     template = 'posts/index.html'
     title = 'Это главная страница проекта Yatube'
+    # Одна строка вместо тысячи слов на SQL:
+    # в переменную posts будет сохранена выборка из 10 объектов модели Post,
+    # отсортированных по полю pub_date по убыванию
+    # (от больших значений к меньшим)
+    posts = Post.objects.order_by('-pub_date')[:10]
     # Словарь с данными принято называть context
-    context = {'title': title}
+    # В словаре context отправляем информацию в шаблон
+    context = {'title': title, 'posts': posts}
     return render(request, template, context)
 
 
@@ -46,9 +52,3 @@ def group_posts(request, slug):
         'nline&hash=&limit=0&content_type=image%2Fpng&owner_uid'
         '=205113803&tknv=v2&size=1920x1096">'
         )
-        # def index(request):
-        #   Загружаем шаблон;
-        #   шаблоны обычно хранят в отдельной директории.
-        #   template = loader.get_template('ice_cream/index.html')
-        #   Формируем шаблон
-        #   return HttpResponse(template.render({}, request))
